@@ -31,7 +31,7 @@ services:
 
 
     phphtml:
-      image: php:apache
+      image: ramesh0112/phpmysql:v1 
       container_name: frontend
       hostname: webserver
       ports: 
