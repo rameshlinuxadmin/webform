@@ -25,8 +25,8 @@ WebForm is a repository designed to showcase the implementation of web-based for
    ```
 
 3. Access the application:
-   - HTML web page: [http://IPADDRESS:9000]
-   - MySQL backend (via PHPMyAdmin): [http://IP ADDRESS:8080]
+   - HTML web page: [http://<IP_ADDRESS>:9000]
+   - MySQL backend (via PHPMyAdmin): [http://<IP_ADDRESS>:8080]
 
 ## Contributing
 Contributions are welcome! Please fork the repository and submit a pull request with your changes.
