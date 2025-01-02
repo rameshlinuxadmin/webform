@@ -14,7 +14,9 @@ $conn = new mysqli($host, $username, $password, $dbname);
 
 // Check connection
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+    die("<div style='padding: 20px; background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; border-radius: 5px; font-family: Arial, sans-serif;'>
+            <strong>Error:</strong> Connection failed: " . $conn->connect_error . "
+         </div>");
 }
 
 // Get form data
@@ -33,15 +35,21 @@ if (!empty($name) && !empty($email) && !empty($message)) {
 
     // Execute query
     if ($stmt->execute()) {
-        echo "Contact details submitted successfully.";
+        echo "<div style='padding: 20px; background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; border-radius: 5px; font-family: Arial, sans-serif;'>
+                <strong>Success:</strong> Contact details submitted successfully.
+             </div>";
     } else {
-        echo "Error: " . $stmt->error;
+        echo "<div style='padding: 20px; background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; border-radius: 5px; font-family: Arial, sans-serif;'>
+                <strong>Error:</strong> " . $stmt->error . "
+             </div>";
     }
 
     // Close the statement
     $stmt->close();
 } else {
-    echo "All fields are required.";
+    echo "<div style='padding: 20px; background-color: #fff3cd; color: #856404; border: 1px solid #ffeeba; border-radius: 5px; font-family: Arial, sans-serif;'>
+            <strong>Warning:</strong> All fields are required.
+         </div>";
 }
 
 // Close the connection
