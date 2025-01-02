@@ -5,25 +5,28 @@ WebForm is a repository designed to showcase the implementation of web-based for
 
 ## Features
 - User-friendly web interface for form submissions.
-- Backend integration for form processing.
-- Customizable templates for various use cases.
+- Backend integration for form processing using MySQL.
+- Access through Docker Compose for easy setup.
 
 ## Prerequisites
-- A working knowledge of HTML, CSS, and JavaScript.
-- [Node.js](https://nodejs.org/) installed for running the backend (if applicable).
-- A web server for hosting the application.
+- Docker and Docker Compose installed.
+- A working knowledge of web technologies like HTML, CSS, and JavaScript.
 
-## Installation
+## Installation and Usage
 1. Clone this repository:
    ```
    git clone https://github.com/rameshlinuxadmin/webform.git
    cd webform
    ```
-2. Follow the instructions in the respective documentation for setup.
 
-## Usage
-1. Modify the form templates as needed to suit your requirements.
-2. Deploy the application on your web server.
+2. Start the application using Docker Compose:
+   ```
+   docker compose up -d
+   ```
+
+3. Access the application:
+   - HTML web page: [http://localhost:9000](http://localhost:9000)
+   - MySQL backend (via PHPMyAdmin): [http://localhost:8080](http://localhost:8080)
 
 ## Contributing
 Contributions are welcome! Please fork the repository and submit a pull request with your changes.
