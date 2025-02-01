@@ -15,7 +15,7 @@ def form():
 
 @app.route('/submit', methods=['POST'])
 
-def suubmit_form():
+def submit_form():
     name = request.form['name']
 
     try:
