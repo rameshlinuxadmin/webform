@@ -3,8 +3,7 @@ kind: Pod
 metadata:
   name: database
   labels:
-    app: mysql
-    tier: database
+    app: database
 spec:
   containers:
   - name: database

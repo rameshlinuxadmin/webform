@@ -9,8 +9,7 @@ metadata:
 spec:
   type: ClusterIP
   selector:
-    app: mysql
-    tier: database
+    app: database
   ports:
   - port: 3306
     targetPort: 3306
