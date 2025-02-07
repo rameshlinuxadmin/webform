@@ -4,7 +4,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 // Database configuration
-$host = 'database'; // Or server IP
+$host = '10.42.0.13'; // Or server IP
 $username = 'mysqluser'; // Replace with your database username
 $password = 'password'; // Replace with your database password
 $dbname = 'contact_form_db'; // Replace with your database name
