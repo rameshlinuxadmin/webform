@@ -26,5 +26,5 @@ spec:
   volumes:
     - name: mysql-storage
       hostPath:
-        path: /root/webform/Kubernetes/sql
-        type: Directory
+        path: /root/webform/Kubernetes/sql/init.sql
+        type: File
