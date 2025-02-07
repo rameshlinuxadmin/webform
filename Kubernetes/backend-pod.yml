@@ -10,7 +10,7 @@ spec:
       image: phpmyadmin/phpmyadmin
       env:
         - name: PMA_HOST
-          value: "mysqlcont"
+          value: "database"
         - name: PMA_USER
           value: "mysqluser"
         - name: PMA_PASSWORD
