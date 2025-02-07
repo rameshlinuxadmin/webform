@@ -12,7 +12,7 @@ services:
         MYSQL_USER: "mysqluser"
         MYSQL_PASSWORD: "password"
       volumes:
-        - ./sql/init.sql:/docker-entrypoint-initdb.d/init.sql
+        - ./sql/init.sql:mysqluser
 
         ### After running "docker-compose up -d", wait till 2 - 5 mins for the mysql setup.
         ### Alternatively, you can check in "docker container logs mysqlcont" 
