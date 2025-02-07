@@ -16,5 +16,6 @@ spec:
           mountPath: /var/www/html
   volumes:
     - name: mydata
-      mountPath: /root/webform/Kubernetes/html
-      type: Directory
+      hostPath:
+        path: /root/webform/Kubernetes/html
+        type: Directory
