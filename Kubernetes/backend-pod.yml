@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: backend-pod
+  labels: 
+    app: mydbweb
+    tier: backend
+spec:
+  containers:
+    - name: phpui
+      image: phpmyadmin/phpmyadmin
+      env:
+        - name: PMA_HOST
+          value: "mysqlcont"
+        - name: PMA_USER
+          value: "mysqluser"
+        - name: PMA_PASSWORD
+          value: "password"
+      ports:
+        - containerPort: 80
