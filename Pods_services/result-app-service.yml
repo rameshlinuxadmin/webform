@@ -12,5 +12,5 @@ spec:
     app: demo-voting-app
   ports:
     - port: 80
-      targetport: 80
-      nodeport: 30001
+      targetPort: 80
+      nodePort: 30001
