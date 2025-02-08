@@ -8,13 +8,6 @@ spec:
   containers:
     - name: phpui
       image: phpmyadmin/phpmyadmin
-      resources:
-        requests:
-          memory: "64Mi"
-          cpu: "250m"
-        limits:
-          memory: "128Mi"
-          cpu: "500m"
       env:
         - name: PMA_HOST
           value: "database"
