@@ -6,9 +6,9 @@ This repository contains a web form application and a voting app, both designed 
 
 The structure of the repository is as follows:
 
-rameshlinuxadmin-webform/
- `├── README.md`                     # This file
- `├── Docker/`                       # Docker-related files
+`rameshlinuxadmin-webform/`
+ `├── README.md                     # This file`
+ `├── Docker/                       # Docker-related files`
 │   ├── docker-compose.yml        # Docker Compose file for local deployment
 │   ├── html/                     # HTML and PHP files for the web form
 │   │   ├── index.html            # Main HTML file for the web form
