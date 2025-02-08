@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: database-deployment
+  labels:
+    app: database
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: database
+      tier: db
+  template:
+    metadata:
+      name: database
+      labels:
+        app: database
+        tier: db
+    spec:
+      containers:
+      - name: database-container
+        image: mysql:latest
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: "mysql"
+        - name: MYSQL_DATABASE
+          value: "contact_form_db"
+        - name: MYSQL_USER
+          value: "mysqluser"
+        - name: MYSQL_PASSWORD
+          value: "password"
+        ports:
+        - containerPort: 3306
+        volumeMounts:
+        - name: mysql-storage
+          mountPath: /docker-entrypoint-initdb.d/init.sql
+      volumes:
+        - name: mysql-storage
+          hostPath:
+            path: /root/webform/Kubernetes/sql/init.sql
+            type: File
+          
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: database
+spec:
+  type: ClusterIP
+  selector:
+    app: database
+    tier: db
+  ports:
+  - port: 3306
+    targetPort: 3306
