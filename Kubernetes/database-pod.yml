@@ -7,7 +7,7 @@ metadata:
     tier: db
 spec:
   containers:
-  - name: database-container
+  - name: database # Name of the container is hardcode in php file
     image: mysql:latest
     env:
     - name: MYSQL_ROOT_PASSWORD
