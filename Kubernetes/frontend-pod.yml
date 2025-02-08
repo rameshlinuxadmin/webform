@@ -7,15 +7,15 @@ metadata:
     tier: frontend
 spec:
   containers:
-    - name: frontend
+    - name: frontend-container
       image: ramesh0112/phpmysql:v1
       ports:
         - containerPort: 80
       volumeMounts:
-        - name: mydata
+        - name: myvolumedata
           mountPath: /var/www/html
   volumes:
-    - name: mydata
+    - name: myvolumedata
       hostPath:
         path: /root/webform/Kubernetes/html
         type: Directory
