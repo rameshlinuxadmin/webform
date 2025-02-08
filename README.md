@@ -1,15 +1,14 @@
+
 # Web Form and Voting App Project
 
 This repository contains a web form application and a voting app, both designed to be deployed using Docker and Kubernetes. The project includes configurations for containerized deployment, as well as Kubernetes manifests for orchestration.
 
 ## Repository Structure
 
-The structure of the repository is as follows:
-
+```plaintext
 rameshlinuxadmin-webform/
 ├── README.md                     # This file
-└── Docker/                        # Docker-related files
-
+├── Docker/                        # Docker-related files
 │   ├── docker-compose.yml        # Docker Compose file for local deployment
 │   ├── html/                     # HTML and PHP files for the web form
 │   │   ├── index.html            # Main HTML file for the web form
@@ -58,7 +57,7 @@ rameshlinuxadmin-webform/
         ├── voting-app-deploy.yml # Voting app deployment configuration
         ├── voting-app-service.yml# Voting app service configuration
         └── worker-app-deploy.yml # Worker app deployment configuration
-
+```
 
 ## Features
 
@@ -77,55 +76,81 @@ rameshlinuxadmin-webform/
 
 ### Steps to Run
 
-1. **Clone the Repository**:
-   ```bash
-   git clone https://github.com/rameshlinuxadmin/webform.git
-   cd webform
-2. **Deploy with Docker**:
-   Navigate to the Docker/ directory:
-   ```bash
-   cd Docker
-   ```
-   Start the application using Docker Compose:
-   ```bash
-   docker-compose up -d
-3. **Deploy with Kubernetes**:
-   Navigate to the Kubernetes/ directory:
-   ```bash
-   cd Kubernetes
-   ```
-   Apply the Kubernetes manifests:
-   ```bash
-   kubectl apply -f .
-   ```
-4. **Deploy the Voting App**:
-   Navigate to the voting_app/ directory:
-   ```bash
-   cd voting_app
-   ```
-   Use the start.sh script to deploy the voting app:
-   ```bash
-   ./start.sh
-   ```
+#### 1. Clone the Repository
+
+```bash
+git clone https://github.com/rameshlinuxadmin/webform.git
+cd webform
+```
+
+#### 2. Deploy with Docker
+
+Navigate to the Docker directory:
+
+```bash
+cd Docker
+```
+
+Start the application using Docker Compose:
+
+```bash
+docker-compose up -d
+```
+
+#### 3. Deploy with Kubernetes
+
+Navigate to the Kubernetes directory:
+
+```bash
+cd Kubernetes
+```
+
+Apply the Kubernetes manifests:
+
+```bash
+kubectl apply -f .
+```
+
+#### 4. Deploy the Voting App
+
+Navigate to the voting_app directory:
+
+```bash
+cd voting_app
+```
+
+Use the `start.sh` script to deploy the voting app:
+
+```bash
+./start.sh
+```
 
 ## Download the Repository
-To download this repository as a ZIP file:
-   1. Click the Code button on the GitHub repository page.
-   2. Select Download ZIP.
-   3. Extract the ZIP file to use the project locally.
 
-Alternatively, use the wget command:
-   ```bash
-   wget https://github.com/rameshlinuxadmin/webform/archive/refs/heads/main.zip -O webform.zip
-   ```
+To download this repository as a ZIP file:
+
+1. Click the **Code** button on the GitHub repository page.
+2. Select **Download ZIP**.
+3. Extract the ZIP file to use the project locally.
+
+Alternatively, use the `wget` command:
+
+```bash
+wget https://github.com/rameshlinuxadmin/webform/archive/refs/heads/main.zip -O webform.zip
+```
+
 ## Contributing
+
 Contributions are welcome! If you'd like to contribute to this project, please follow these steps:
-   1. Fork the repository.
-   2. Create a new branch for your feature or bugfix.
-   3. Commit your changes.
-   4. Push your branch and submit a pull request.
+
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Commit your changes.
+4. Push your branch and submit a pull request.
 
 ## Contact
+
 For any questions or feedback, please contact the repository owner:
-   Name: Ramesh Aravind
-   GitHub: rameshlinuxadmin[https://github.com/rameshlinuxadmin]
+
+- **Name**: Ramesh Aravind  
+- **GitHub**: [rameshlinuxadmin](https://github.com/rameshlinuxadmin)
