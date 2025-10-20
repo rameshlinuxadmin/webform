@@ -32,3 +32,38 @@ storage_config:
 
 limits_config:
   enforce_metric_name: false
+
+
+// ----------------------------------------------------
+// LOG MONITORING (Loki Pipeline)
+// ----------------------------------------------------
+
+// 1. Discover log files
+local.file_match "syslog_files" {
+  path_targets = [{
+    "__path__" = "/var/log/syslog"   // Change to /var/log/messages for RHEL
+  }]
+  sync_period = "5s"
+}
+
+// 2. Scrape and forward logs
+loki.source.file "syslog_source" {
+  targets = local.file_match.syslog_files.targets
+  labels = {
+    job   = "syslog"
+    host  = "localhost"
+    env   = "production"
+  }
+  forward_to = [loki.write.local_loki.receiver]
+}
+
+// 3. Write logs to Loki
+loki.write "local_loki" {
+  endpoint {
+    url = "http://localhost:3100/loki/api/v1/push"
+  }
+  default_labels = {
+    team   = "ops"
+    region = "us-east"
+  }
+}
