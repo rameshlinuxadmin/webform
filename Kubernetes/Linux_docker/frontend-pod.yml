@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: frontend-pod
+  labels:
+    app: mywebsite
+    tier: frontend
+spec:
+  containers:
+    - name: frontend-container
+      image: ramesh0112/phpmysql:v1
+      ports:
+        - containerPort: 80
+      volumeMounts:
+        - name: myvolumedata
+          mountPath: /var/www/html
+  volumes:
+    - name: myvolumedata
+      hostPath:
+        path: /root/webform/Kubernetes/html
+        type: Directory
