@@ -1,0 +1,99 @@
+# -------------------------------------------------------
+# GLOBAL VALUES (Optional)
+# -------------------------------------------------------
+namespace: default
+
+# -------------------------------------------------------
+# POSTGRES CONFIG
+# -------------------------------------------------------
+postgres:
+  name: postgres
+  replicas: 2
+
+  image:
+    repository: postgres
+    tag: latest
+    pullPolicy: IfNotPresent
+
+  port: 5432
+
+  env:
+    user: postgres
+    password: postgres
+    database: postgres
+
+  service:
+    type: ClusterIP
+    port: 5432
+
+
+# -------------------------------------------------------
+# REDIS CONFIG
+# -------------------------------------------------------
+redis:
+  name: redis
+  replicas: 1
+
+  image:
+    repository: redis
+    tag: latest
+    pullPolicy: IfNotPresent
+
+  port: 6379
+
+  service:
+    type: ClusterIP
+    port: 6379
+
+
+# -------------------------------------------------------
+# VOTING APP CONFIG
+# -------------------------------------------------------
+votingApp:
+  name: voting-app
+  replicas: 2
+
+  image:
+    repository: kodekloud/examplevotingapp_vote
+    tag: v1
+    pullPolicy: IfNotPresent
+
+  port: 80
+
+  service:
+    type: NodePort
+    port: 80
+    nodePort: 30001
+
+
+# -------------------------------------------------------
+# RESULT APP CONFIG
+# -------------------------------------------------------
+resultApp:
+  name: result-app
+  replicas: 1
+
+  image:
+    repository: kodekloud/examplevotingapp_result
+    tag: v1
+    pullPolicy: IfNotPresent
+
+  port: 80
+
+  service:
+    type: NodePort
+    port: 80
+    nodePort: 30002
+
+
+# -------------------------------------------------------
+# WORKER APP CONFIG
+# -------------------------------------------------------
+workerApp:
+  name: worker-app
+  replicas: 1
+
+  image:
+    repository: dockersamples/examplevotingapp_worker
+    tag: latest
+    pullPolicy: IfNotPresent
