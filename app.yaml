@@ -11,7 +11,7 @@ spec:
   source:
     repoURL: https://github.com/rameshlinuxadmin/webform.git
     targetRevision: main
-    path: Kubernetes/Docker_desktop_windows
+    path: k8s
   syncPolicy:
     automated:
       prune: true

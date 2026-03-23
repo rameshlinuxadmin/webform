@@ -22,7 +22,14 @@ spec:
           image: ramesh0112/phpmysql:v1
           ports:
             - containerPort: 80
-  
+          volumeMounts:
+            - name: myvolumedata
+              mountPath: /var/www/html
+      volumes:
+        - name: myvolumedata
+          hostPath:
+            path: "../html"
+            type: Directory
 ---
 apiVersion: v1
 kind: Service
