@@ -9,33 +9,33 @@ spec:
   selector:
     matchLabels:
       name: {{ .Values.redis.name }}-pod
-      app: demo-voting-app
+      app: {{ .Values.application.name }}
   template:
     metadata: 
       name: {{ .Values.redis.name }}
       labels:
         name: {{ .Values.redis.name }}-pod
-        app: demo-voting-app
+        app: {{ .Values.application.name }}
     spec: 
       containers:
         - name: {{ .Values.redis.name }}
           image: {{ .Values.redis.image }}
           ports:
-            - containerPort: 6379
+            - containerPort: {{ .Values.redis.containerPort }}
 
 ---
 apiVersion: v1
 kind: Service
 metadata: 
-  name: redis
+  name: {{ .Values.redis.name }}
   labels:
-    name: redis-service
-    app: demo-voting-app
+    name: {{ .Values.redis.name }}-service
+    app: {{ .Values.application.name }}
 spec: 
-  type: ClusterIP
+  type: {{ .Values.redis.porttype }}
   selector: 
-    name: redis-pod
-    app: demo-voting-app
+    name: {{ .Values.redis.name }}-pod
+    app: {{ .Values.application.name }}
   ports:
-    - port: 6379
-      targetPort: 6379
+    - port: {{ .Values.redis.containerPort }}
+      targetPort: {{ .Values.redis.containerPort }}

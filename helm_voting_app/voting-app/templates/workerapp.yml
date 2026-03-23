@@ -9,13 +9,13 @@ spec:
   selector:
     matchLabels:
       name: {{ .Values.workerApp.name }}-pod
-      app: demo-voting-app
+      app: {{ .Values.application.name }}
   template:
     metadata: 
       name: {{ .Values.workerApp.name }}
       labels:
         name: {{ .Values.workerApp.name }}-pod
-        app: demo-voting-app
+        app: {{ .Values.application.name }}
     spec: 
       containers:
         - name: {{ .Values.workerApp.name }}

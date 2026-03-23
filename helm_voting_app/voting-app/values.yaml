@@ -1,7 +1,10 @@
 # -------------------------------------------------------
 # GLOBAL VALUES (Optional)
 # -------------------------------------------------------
-namespace: default
+namespace: votingApp
+
+application:
+  name: voting-app
 
 # -------------------------------------------------------
 # POSTGRES CONFIG
@@ -9,6 +12,11 @@ namespace: default
 postgres:
   name: postgres
   image: postgres:latest
+  containerPort: 5432
+  postgres_user: postgres
+  postgres_password: postgres
+  porttype: ClusterIP
+
 
 # -------------------------------------------------------
 # REDIS CONFIG
@@ -16,6 +24,8 @@ postgres:
 redis:
   name: redis
   image: redis:latest
+  containerPort: 6379
+  porttype: ClusterIP
 
 # -------------------------------------------------------
 # VOTING APP CONFIG
@@ -23,13 +33,19 @@ redis:
 votingApp:
   name: voting-app
   image: kodekloud/examplevotingapp_vote:v1
-
+  containerPort: 80
+  nodePort: 30000
+  porttype: NodePort
+  
 # -------------------------------------------------------
 # RESULT APP CONFIG
 # -------------------------------------------------------
 resultApp:
   name: result-app
   image: kodekloud/examplevotingapp_result:v1
+  containerPort: 80
+  nodePort: 30001
+  porttype: NodePort
 
 # -------------------------------------------------------
 # WORKER APP CONFIG

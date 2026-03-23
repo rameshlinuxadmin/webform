@@ -3,44 +3,44 @@ kind: Deployment
 metadata:
   name: {{ .Values.postgres.name }}-deploy
   labels:
-    app: postgres
+    app: {{ .Values.postgres.name }}
 spec:
   replicas: 1
   selector:
     matchLabels:
       name: {{ .Values.postgres.name }}-pod
-      app: demo-voting-app
+      app: {{ .Values.application.name }}
   template:
     metadata: 
       name: {{ .Values.postgres.name }}-pod
       labels:
         name: {{ .Values.postgres.name }}-pod
-        app: demo-voting-app
+        app: {{ .Values.application.name }}
     spec: 
       containers:
         - name: {{ .Values.postgres.name }}
           image: {{ .Values.postgres.image }}
           ports:
-            - containerPort: 5432
+            - containerPort: {{ .Values.postgres.containerPort }}
           env:
             - name: POSTGRES_USER
-              value: "postgres"
+              value: {{ .Values.postgres.postgres_user }}
             - name: POSTGRES_PASSWORD
-              value: "postgres"
+              value: {{ .Values.postgres.postgres_password }}
 
 ---
 apiVersion: v1
 kind: Service
 metadata: 
-  name: db
+  name: {{ .Values.postgres.name }}
   labels:
-    name: postgres-service
-    app: demo-voting-app
+    name: {{ .Values.postgres.name }}-service
+    app: {{ .Values.application.name }}
 spec: 
-  type: ClusterIP
+  type: {{ .Values.postgres.porttype }}
   selector: 
-    name: postgres-pod
-    app: demo-voting-app
+    name: {{ .Values.postgres.name }}-pod
+    app: {{ .Values.application.name }}
   ports:
-    - port: 5432
-      targetPort: 5432
+    - port: {{ .Values.postgres.containerPort }}
+      targetPort: {{ .Values.postgres.containerPort }}

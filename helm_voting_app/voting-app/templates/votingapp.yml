@@ -7,13 +7,13 @@ spec:
   selector:
     matchLabels:
       name: {{ .Values.votingApp.name }}-pod
-      app: demo-voting-app
+      app: {{ .Values.application.name }}
   template:
     metadata: 
       name: {{ .Values.votingApp.name }}
       labels:
         name: {{ .Values.votingApp.name }}-pod
-        app: demo-voting-app
+        app: {{ .Values.application.name }}
     spec: 
       containers:
         - name: {{ .Values.votingApp.name }}
@@ -25,16 +25,16 @@ spec:
 apiVersion: v1
 kind: Service
 metadata: 
-  name: voting-app-service
+  name: {{ .Values.votingApp.name }}-service
   labels:
-    name: voting-app-service
-    app: demo-voting-app
+    name: {{ .Values.votingApp.name }}-service
+    app: {{ .Values.application.name }}
 spec: 
-  type: NodePort
+  type: {{ .Values.votingApp.porttype }}
   selector: 
-    name: voting-app-pod
-    app: demo-voting-app
+    name: {{ .Values.votingApp.name }}-pod
+    app: {{ .Values.application.name }}
   ports:
-    - port: 80
-      targetPort: 80
-      nodePort: 30000
+    - port: {{ .Values.votingApp.containerPort }}
+      targetPort: {{ .Values.votingApp.containerPort }}
+      nodePort: {{ .Values.votingApp.nodePort }}
