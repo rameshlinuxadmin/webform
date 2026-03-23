@@ -12,7 +12,7 @@ spec:
   source:
     repoURL: https://github.com/rameshlinuxadmin/webform.git
     targetRevision: main
-    path: voting-app        # IMPORTANT ← This must be your Helm chart folder
+    path: helm_voting_app/voting-app        # IMPORTANT ← This must be your Helm chart folder
     helm:
       valueFiles:
         - values.yaml       # optional (default)

@@ -8,92 +8,32 @@ namespace: default
 # -------------------------------------------------------
 postgres:
   name: postgres
-  replicas: 2
-
-  image:
-    repository: postgres
-    tag: latest
-    pullPolicy: IfNotPresent
-
-  port: 5432
-
-  env:
-    user: postgres
-    password: postgres
-    database: postgres
-
-  service:
-    type: ClusterIP
-    port: 5432
-
+  image: postgres:latest
 
 # -------------------------------------------------------
 # REDIS CONFIG
 # -------------------------------------------------------
 redis:
   name: redis
-  replicas: 1
-
-  image:
-    repository: redis
-    tag: latest
-    pullPolicy: IfNotPresent
-
-  port: 6379
-
-  service:
-    type: ClusterIP
-    port: 6379
-
+  image: redis:latest
 
 # -------------------------------------------------------
 # VOTING APP CONFIG
 # -------------------------------------------------------
 votingApp:
   name: voting-app
-  replicas: 2
-
-  image:
-    repository: kodekloud/examplevotingapp_vote
-    tag: v1
-    pullPolicy: IfNotPresent
-
-  port: 80
-
-  service:
-    type: NodePort
-    port: 80
-    nodePort: 30001
-
+  image: kodekloud/examplevotingapp_vote:v1
 
 # -------------------------------------------------------
 # RESULT APP CONFIG
 # -------------------------------------------------------
 resultApp:
   name: result-app
-  replicas: 1
-
-  image:
-    repository: kodekloud/examplevotingapp_result
-    tag: v1
-    pullPolicy: IfNotPresent
-
-  port: 80
-
-  service:
-    type: NodePort
-    port: 80
-    nodePort: 30002
-
+  image: kodekloud/examplevotingapp_result:v1
 
 # -------------------------------------------------------
 # WORKER APP CONFIG
 # -------------------------------------------------------
 workerApp:
   name: worker-app
-  replicas: 1
-
-  image:
-    repository: dockersamples/examplevotingapp_worker
-    tag: latest
-    pullPolicy: IfNotPresent
+  image: dockersamples/examplevotingapp_worker:latest
