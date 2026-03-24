@@ -5,9 +5,9 @@ metadata:
   namespace: argocd
 spec:
   destination:
-    namespace: {{ .Values.namespace }}
+    namespace: votingapp
     server: https://kubernetes.default.svc
-  project: {{ .Values.namespace }}
+  project: votingapp
 
   source:
     repoURL: https://github.com/rameshlinuxadmin/webform.git
