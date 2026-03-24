@@ -42,7 +42,7 @@ resultApp:
   name: result-app
   image: kodekloud/examplevotingapp_result:v1
   containerPort: 80
-  nodePort: 30001
+  nodePort: 30002
   porttype: NodePort
 
 # -------------------------------------------------------
